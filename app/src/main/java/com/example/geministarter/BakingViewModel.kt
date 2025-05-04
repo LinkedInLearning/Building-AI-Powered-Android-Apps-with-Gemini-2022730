@@ -19,13 +19,13 @@ class BakingViewModel : ViewModel() {
         _uiState.asStateFlow()
 
     private val generativeModel = GenerativeModel(
-        modelName = "gemini-2.0-flash",
+        modelName = "gemini-1.5-flash",
         apiKey = BuildConfig.apiKey
     )
 
     fun sendPrompt(
-        bitmap: Bitmap,
-        prompt: String
+        bitmap1: Bitmap,
+        bitmap2: Bitmap
     ) {
         _uiState.value = UiState.Loading
 
@@ -35,8 +35,8 @@ class BakingViewModel : ViewModel() {
             try {
                 generativeModel.generateContentStream(
                     content {
-                        image(bitmap)
-                        text(prompt)
+                        image(bitmap1)
+                        image(bitmap2)
                     }
                 ).collect { response ->
                     Log.d("GeminiStreaming", "sendPrompt: ${response.text}")

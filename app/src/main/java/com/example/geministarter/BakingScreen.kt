@@ -1,10 +1,7 @@
 package com.example.geministarter
 
 import android.graphics.BitmapFactory
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,9 +20,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -39,24 +34,23 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 val images = arrayOf(
-    // Image generated using Gemini from the prompt "cupcake image"
-    R.drawable.baked_goods_1,
-    // Image generated using Gemini from the prompt "cookies images"
-    R.drawable.baked_goods_2,
-    // Image generated using Gemini from the prompt "cake images"
-    R.drawable.baked_goods_3,
+    // Image generated using Gemini from the prompt "bird image"
+    R.drawable.bird,
+    // Image generated using Gemini from the prompt "cats image"
+    R.drawable.cats
 )
 val imageDescriptions = arrayOf(
     R.string.image1_description,
-    R.string.image2_description,
-    R.string.image3_description,
+    R.string.image2_description
 )
 
 @Composable
 fun BakingScreen(
     bakingViewModel: BakingViewModel = viewModel()
 ) {
-    val selectedImage = remember { mutableIntStateOf(0) }
+
+    // Image selection not needed
+    //  val selectedImage = remember { mutableIntStateOf(0) }
     val placeholderPrompt = stringResource(R.string.prompt_placeholder)
     val placeholderResult = stringResource(R.string.results_placeholder)
     var prompt by rememberSaveable { mutableStateOf(placeholderPrompt) }
@@ -80,13 +74,14 @@ fun BakingScreen(
                 var imageModifier = Modifier
                     .padding(start = 8.dp, end = 8.dp)
                     .requiredSize(200.dp)
-                    .clickable {
-                        selectedImage.intValue = index
-                    }
-                if (index == selectedImage.intValue) {
-                    imageModifier =
-                        imageModifier.border(BorderStroke(4.dp, MaterialTheme.colorScheme.primary))
-                }
+                // Image selection not needed
+//                    .clickable {
+//                        selectedImage.intValue = index
+//                    }
+//                if (index == selectedImage.intValue) {
+//                    imageModifier =
+//                        imageModifier.border(BorderStroke(4.dp, MaterialTheme.colorScheme.primary))
+//                }
                 Image(
                     painter = painterResource(image),
                     contentDescription = stringResource(imageDescriptions[index]),
@@ -110,11 +105,9 @@ fun BakingScreen(
 
             Button(
                 onClick = {
-                    val bitmap = BitmapFactory.decodeResource(
-                        context.resources,
-                        images[selectedImage.intValue]
-                    )
-                    bakingViewModel.sendPrompt(bitmap, prompt)
+                    val bitmap1 = BitmapFactory.decodeResource(context.resources, images[0])
+                    val bitmap2 = BitmapFactory.decodeResource(context.resources, images[1])
+                    bakingViewModel.sendPrompt(bitmap1, bitmap2)
                 },
                 enabled = prompt.isNotEmpty(),
                 modifier = Modifier
