@@ -1,7 +1,6 @@
 package com.example.geministarter
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
@@ -39,7 +38,6 @@ class BakingViewModel : ViewModel() {
                         image(bitmap2)
                     }
                 ).collect { response ->
-                    Log.d("GeminiStreaming", "sendPrompt: ${response.text}")
                     output.append(response.text)
                     _uiState.value = UiState.Success(output.toString())
                 }
