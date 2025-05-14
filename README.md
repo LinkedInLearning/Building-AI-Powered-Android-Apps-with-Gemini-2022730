@@ -1,6 +1,12 @@
 # Building AI-Powered Android Apps with Gemini
 This is the repository for the LinkedIn Learning course Building AI-Powered Android Apps with Gemini. The full course is available from [LinkedIn Learning][lil-course-url].
 
+![lil-thumbnail-url]
+
+## Course Description
+
+Android apps can now process AI prompts using cloud-based Large Language Models, starting with Google Gemini. In this course you’ll learn how to use the Gemini API to prototype an Android App with AI, and then how to migrate to Vertex API in Firebase for production apps. The course also teaches how to use Gemini in Android Studio to generate code and answer programming questions.
+
 _See the readme file in the main branch for updated instructions and information._
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
@@ -20,25 +26,18 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
-
 ## Instructor
 
-Instructor name
+David Gassner
 
-Instructor description
-
+Author of 120+ video-based training courses for software developers
                             
 
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/).
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/david-gassner?u=104).
 
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+[lil-course-url]: https://www.linkedin.com/learning/building-ai-powered-android-apps-with-gemini
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQE_a-yMXPcyWQ/learning-public-crop_675_1200/B4EZbGZmhIHMAc-/0/1747085322574?e=2147483647&v=beta&t=gkNBOr6C4ZHMziayZ3aY_48aG7tT1gReW0bshWw4tos
 
